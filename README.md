@@ -22,5 +22,9 @@ PayMaya Payments Skeleton Backend
 
 1. PayMaya Payments Skeleton Backend is using Sails.js MVC Framework. For more info about Sails.js, head to this link: http://sailsjs.org/
 2. You have to put your Secret API Key to the `config/env/development.js` file.
-3. You also need to base64-encode your Secret API Key and put it in the file `api/services/PaymentsHelper.js`. For base64 encoding using Node.js, you can follow this guide: http://www.codingdefined.com/2015/07/how-to-encode-string-to-base64-in-nodejs.html
+3. You also need to base64-encode your Secret API Key and put it in the file `api/services/PaymentsHelper.js`. For base64 encoding using Node.js, you can use the following code:
+```
+var buffer = new Buffer(sails.config.payments.sandbox.secretApiKey);
+var base64EncodedKeys = buffer.toString('base64');
+```
 4. After you have done the steps above, go back to your terminal and re-run your app.
