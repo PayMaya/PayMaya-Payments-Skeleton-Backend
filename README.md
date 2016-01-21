@@ -27,4 +27,4 @@ PayMaya Payments Skeleton Backend
 var buffer = new Buffer(sails.config.payments.sandbox.secretApiKey);
 var base64EncodedKeys = buffer.toString('base64');
 ```
-4. After you have done the steps above, go back to your terminal and re-run your app.
+After you have done the steps above, go back to your terminal and re-run your app.
