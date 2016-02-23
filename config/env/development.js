@@ -25,9 +25,10 @@ module.exports = {
 
     sandbox: {
       host: "api.paymaya.com",
-      path: "/sandbox/payments/payments",
+      path: "/sandbox/payments/v1/payments",
       publicApiKey: "pk-sHQWci2P410ppwFQvsi7IQCpHsIjafy74jrhYb8qfxu",
-      secretApiKey: "<YOUR_SECRET_KEY>"
+      //<ADD SECRET API KEY>
+      secretApiKey: "sk-4Wub7pHVixHR8lm7vgdxgMq23TDJcms8EMEobM80uoo"
     }
 
   }

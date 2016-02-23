@@ -40,6 +40,9 @@ module.exports = {
      *
      */
 
+    var buffer = new Buffer(sails.config.payments.sandbox.secretApiKey + ":");
+    var base64EncodedKeys = buffer.toString('base64');
+
 
     // Logs your key to the command line console
     sails.log.info("base64EncodedKeys: " + base64EncodedKeys);
