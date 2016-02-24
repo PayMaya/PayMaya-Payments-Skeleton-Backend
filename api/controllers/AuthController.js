@@ -168,9 +168,17 @@ var AuthController = {
         // Mark the session as authenticated to work with default Sails sessionAuth.js policy
         req.session.authenticated = true
         
+        var userID = user.id;
+        Passport.find({user: userID}, function(err, items){
+          if(err) return err;
+
+          // Make sure you dont give them any sensetive data
+          res.json({userData: user, token: items[0].accessToken});
+        });
+
         // Upon successful login, send the user to the homepage were req.user
         // will be available.
-        res.redirect('/');
+        // res.redirect('/');
       });
     });
   },
