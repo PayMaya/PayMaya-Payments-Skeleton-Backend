@@ -37,7 +37,7 @@ After you have done the steps above, go back to your terminal and re-run your ap
 {
   "userData": {
     "username": "paymaya-ios-sdk",
-    "email": "paymayadevs-ios@voyager.ph",
+    "email": "paymayadevs-ios@voyager.ph",\
     "createdAt": "2016-02-24T01:53:21.521Z",
     "updatedAt": "2016-02-24T01:53:21.521Z",
     "id": 38
@@ -45,7 +45,7 @@ After you have done the steps above, go back to your terminal and re-run your ap
   "token": "WEW0y6rsTfClk5g5095ohCZyQNAcvAgqIPrDQG7F2JYOB2BIux5Vxe9p66Ztvm/8"
 }
 ```
-3. Use these access token by adding Authorization parameter on your request header with value "Bearer <access_token>".
+3. Use these access token by adding Authorization parameter on your request header with value "Bearer \<access_token\>".
 ```
 Authorization: Bearer WEW0y6rsTfClk5g5095ohCZyQNAcvAgqIPrDQG7F2JYOB2BIux5Vxe9p66Ztvm/8
 ```
