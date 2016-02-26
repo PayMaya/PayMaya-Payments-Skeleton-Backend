@@ -32,6 +32,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'GET /login': 'AuthController.login',
+  'GET /logout': 'AuthController.logout',
+  'GET /register': 'AuthController.register',
+  'POST /auth/local': 'AuthController.callback',
+  'POST /auth/local/:action': 'AuthController.callback',
+
   "POST /payments": {
     controller: "v1/payments",
     action: "create"
