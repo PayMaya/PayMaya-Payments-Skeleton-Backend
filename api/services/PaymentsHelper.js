@@ -2,30 +2,11 @@ var https = require("https");
 
 module.exports = {
 
-  requestPayments: function(paymentToken, callback) {
+  requestPayments: function(paymentToken, totalAmount, buyer, callback) {
     var payload = {
       "paymentTokenId": paymentToken,
-      "totalAmount": {
-        "amount": 100,
-        "currency": "PHP"
-      },
-      "buyer": {
-        "firstName": "Cza",
-        "middleName": "dela",
-        "lastName": "Bongat",
-        "contact": {
-          "phone": "+63(2)1234567890",
-          "email": "paymayabuyer1@gmail.com"
-        },
-        "billingAddress": {
-          "line1": "9F Robinsons Cybergate 3",
-          "line2": "Pioneer Street",
-          "city": "Mandaluyong City",
-          "state": "Metro Manila",
-          "zipCode": "12345",
-          "countryCode": "PH"
-        }
-      }
+      "totalAmount": totalAmount,
+      "buyer": buyer
     };
 
     var stringifiedPayload = JSON.stringify(payload);
