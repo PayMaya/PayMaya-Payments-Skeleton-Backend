@@ -47,7 +47,6 @@ After you have done the steps above, go back to your terminal and re-run your ap
         }
         
 3. Use this access token by adding Authorization parameter on your request header with the value "Bearer \<access_token\>".
-```
-Authorization: Bearer WEW0y6rsTfClk5g5095ohCZyQNAcvAgqIPrDQG7F2JYOB2BIux5Vxe9p66Ztvm/8
-```
+
+        Authorization: Bearer WEW0y6rsTfClk5g5095ohCZyQNAcvAgqIPrDQG7F2JYOB2BIux5Vxe9p66Ztvm/8
 
