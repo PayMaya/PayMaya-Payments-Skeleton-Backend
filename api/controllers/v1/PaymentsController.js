@@ -9,12 +9,22 @@ module.exports = {
 
 	create: function(req, res) {
 		var paymentToken = req.body.paymentToken || "";
+		var totalAmount = req.body.totalAmount || "";
+		var buyer = req.body.buyer || "";
 
 		if ( !paymentToken ) {
-			return res.badRequest("Missing Payment Token");
+			return res.badRequest("Missing payment token");
 		}
 
-		PaymentsHelper.requestPayments(paymentToken, function(err, result) {
+		if ( !totalAmount ) {
+			return res.badRequest("Missing total amount");
+		}
+
+		if ( !buyer ) {
+			return res.badRequest("Missing buyer information");
+		}
+
+		PaymentsHelper.requestPayments(paymentToken, totalAmount, buyer, function(err, result) {
 			if (err) {
 				return res.serverError(err);
 			}
