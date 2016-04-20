@@ -32,6 +32,11 @@ module.exports.policies = {
   },
   'v1/PaymentsController' : {
     '*': ['passport','bearerAuth']
+  },
+
+  "v1/Customer": {
+    "*": true,
+    "create": true
   }
 
   // '*': true,

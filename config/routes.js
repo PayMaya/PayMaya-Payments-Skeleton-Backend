@@ -43,9 +43,7 @@ module.exports.routes = {
     action: "create"
   },
 
-  "/": {
-    view: "homepage"
-  }
+  "POST /customers": "v1/Customer.create"
 
   /***************************************************************************
   *                                                                          *

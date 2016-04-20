@@ -30,6 +30,19 @@ module.exports = {
       secretApiKey: "sk-9lRmFTV8BIdxoXWm5liDAlKF0yL4gZzwmDQAmnvxWOF"
     }
 
+  },
+
+  cardVault: {
+
+    sandbox: {
+      host: "https://pg-sandbox.paymaya.com",
+      secretApiKey: "sk-9lRmFTV8BIdxoXWm5liDAlKF0yL4gZzwmDQAmnvxWOF",
+      customers: {
+        get: "/payments/v1/customers/{customer_id}",
+        post: "/payments/v1/customers"
+      }
+    }
+
   }
 
 };
