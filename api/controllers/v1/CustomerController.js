@@ -1,15 +1,11 @@
 /**
  * CustomerController
  *
- * @description :: Server-side logic for managing customers
+ * @description :: Server-side logic for managing Customers
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
 module.exports = {
-
-  show: function(req, res) {
-
-  },
 
   create: function(req, res) {
     var customerService = new CustomerService();
