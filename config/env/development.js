@@ -40,6 +40,10 @@ module.exports = {
       customers: {
         get: "/payments/v1/customers/{customer_id}",
         post: "/payments/v1/customers"
+      },
+      cards: {
+        vault: "/payments/v1/customers/{customer_id}/cards",
+        list: "/payments/v1/customers/{customer_id}/cards"
       }
     }
 
