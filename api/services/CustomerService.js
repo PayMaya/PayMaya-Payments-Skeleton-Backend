@@ -45,6 +45,12 @@ CustomerService.prototype.create = function(options, done) {
 
   request.post(params, function(error, response, body) {
     sails.log.info("response body: ", body);
-    return done(error, body);
+
+    var result = {
+      response: response,
+      body: body
+    };
+
+    return done(error, result);
   });
 };

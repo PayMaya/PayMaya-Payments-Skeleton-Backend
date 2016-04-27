@@ -14,7 +14,22 @@ module.exports = {
         return res.serverError(err);
       }
 
-      return res.json(result);
+      var response = result.response;
+      var body = result.body;
+
+      if (response.statusCode >= 200 && response.statusCode <= 399) {
+        return res.json(body);
+      }
+
+      if(response.statusCode == 400) {
+        return res.badRequest(body);
+      }
+
+      if(response.statusCode == 404) {
+        return res.notFound(body);
+      }
+
+      return res.serverError(body);
     });
   }
 
