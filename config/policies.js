@@ -37,6 +37,12 @@ module.exports.policies = {
   "v1/Customer": {
     "*": true,
     "create": true
+  },
+
+  "v1/Card": {
+    "*": true,
+    "show": true,
+    "create": true
   }
 
   // '*': true,
