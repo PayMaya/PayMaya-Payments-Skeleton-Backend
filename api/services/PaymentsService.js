@@ -35,6 +35,42 @@ PaymentsService.prototype.create = function(options, done) {
   });
 };
 
+PaymentsService.prototype.createCustomerCardPayment = function(options, done) {
+  var customerId = options.customerId || "";
+  var cardId = options.cardId || "";
+  var payload = options.payload || {};
+  
+  var buffer = new Buffer(sails.config.payments.sandbox.secretApiKey + ":");
+  var base64EncodedKeys = buffer.toString('base64');
+  var url = sails.config.cardVault.sandbox.host + sails.config.cardVault.sandbox.payments.create;
+  
+  url = url.replace("{customer_id}", customerId);
+  url = url.replace("{card_id}", cardId);
+  
+  var params = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Basic " + base64EncodedKeys
+    },
+    url: url,
+    body: payload,
+    json: true
+  };
+
+  sails.log.info("@PaymentsService.createCustomerCardPayment params: ", params);
+
+  request.post(params, function(error, response, body) {
+    sails.log.info("@PaymentsService.createCustomerCardPayment body: ", body);
+
+    var result = {
+      response: response,
+      body: body
+    };
+
+    return done(error, result);
+  });
+};
+
 //
 // module.exports = {
 //

@@ -8,28 +8,70 @@
 module.exports = {
 
 	create: function(req, res) {
-		var paymentToken = req.body.paymentToken || "";
-		var totalAmount = req.body.totalAmount || "";
-		var buyer = req.body.buyer || "";
+		var payload = req.body;
 
-		if ( !paymentToken ) {
-			return res.badRequest("Missing payment token");
-		}
+		var options = {
+			payload: payload
+		};
 
-		if ( !totalAmount ) {
-			return res.badRequest("Missing total amount");
-		}
-
-		if ( !buyer ) {
-			return res.badRequest("Missing buyer information");
-		}
-
-		PaymentsHelper.requestPayments(paymentToken, totalAmount, buyer, function(err, result) {
+		var paymentsService = new PaymentsService();
+		paymentsService.create(options, function(err, result) {
 			if (err) {
 				return res.serverError(err);
 			}
 
-			return res.json(JSON.parse(result));
+			var response = result.response;
+			var body = result.body;
+
+			if (response.statusCode >= 200 && response.statusCode <= 399) {
+				return res.json(body);
+			}
+
+			if(response.statusCode == 400) {
+				return res.badRequest(body);
+			}
+
+			if(response.statusCode == 404) {
+				return res.notFound(body);
+			}
+
+			return res.serverError(body);
+		});
+	},
+
+  createCustomerCardPayment: function(req, res) {
+		var customerId = req.param("customerId") || "";
+		var cardId = req.param("cardId") || "";
+		var payload = req.body;
+
+		var options = {
+			customerId: customerId,
+			cardId: cardId,
+			payload: payload
+		};
+
+		var paymentsService = new PaymentsService();
+		paymentsService.createCustomerCardPayment(options, function(err, result) {
+			if (err) {
+				return res.serverError(err);
+			}
+
+			var response = result.response;
+			var body = result.body;
+
+			if (response.statusCode >= 200 && response.statusCode <= 399) {
+				return res.json(body);
+			}
+
+			if(response.statusCode == 400) {
+				return res.badRequest(body);
+			}
+
+			if(response.statusCode == 404) {
+				return res.notFound(body);
+			}
+
+			return res.serverError(body);
 		});
 	}
 

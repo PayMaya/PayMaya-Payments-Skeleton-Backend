@@ -17,14 +17,21 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  // models: {
-  //   connection: 'someMongodbServer'
-  // }
+  connections: {
+    redis: {
+      adapter: "redis",
+      host:  "localhost",
+      port: 6379,
+      db: 0,
+      prefix: "",
+      pass: ""
+    }
+  },
 
   payments: {
 
     sandbox: {
-      host: "pg-sandbox.paymaya.com",
+      host: "https://pg-sandbox.paymaya.com",
       path: "/payments/v1/payments",
       publicApiKey: "pk-N6TvoB4GP2kIgNz4OCchCTKYvY5kPQd2HDRSg8rPeQG",
       secretApiKey: "sk-9lRmFTV8BIdxoXWm5liDAlKF0yL4gZzwmDQAmnvxWOF"
@@ -44,6 +51,9 @@ module.exports = {
       cards: {
         vault: "/payments/v1/customers/{customer_id}/cards",
         list: "/payments/v1/customers/{customer_id}/cards"
+      },
+      payments: {
+        create: "/payments/v1/customers/{customer_id}/cards/{card_id}/payments"
       }
     }
 

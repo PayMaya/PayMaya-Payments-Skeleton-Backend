@@ -38,12 +38,16 @@ module.exports.routes = {
   'POST /auth/local': 'AuthController.callback',
   'POST /auth/local/:action': 'AuthController.callback',
 
-  "POST /payments": {
-    controller: "v1/payments",
-    action: "create"
-  },
 
-  
+  /***************************************************************************
+  *                                                                          *
+  *                           P A Y M E N T S                                *
+  *                                                                          *
+  ***************************************************************************/
+
+  "POST /payments": "v1/Payments.create",
+  "POST /payments/customers/:customerId/cards/:cardId": "v1/Payments.createCustomerCardPayment",
+
 
   /***************************************************************************
   *                                                                          *

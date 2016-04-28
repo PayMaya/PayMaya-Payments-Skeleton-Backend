@@ -26,12 +26,15 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': ['passport', 'sessionAuth'],
-  'auth': {
-     '*': ['passport']
+  "*": ["passport", "sessionAuth"],
+  "auth": {
+     "*": ["passport"]
   },
-  'v1/PaymentsController' : {
-    '*': ['passport','bearerAuth']
+
+  "v1/PaymentsController" : {
+    "*": true,
+    "create": ["passport","bearerAuth"],
+    "createCustomerCardPayment": true
   },
 
   "v1/Customer": {
