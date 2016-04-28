@@ -1,10 +1,10 @@
 var request = require("request");
 
-module.exports = Card;
+module.exports = CardService;
 
-function Card() {}
+function CardService() {}
 
-Card.prototype.vault = function(options, done) {
+CardService.prototype.vault = function(options, done) {
   var customerId = options.customerId || "";
   var payload = options.payload || {};
   
@@ -27,7 +27,7 @@ Card.prototype.vault = function(options, done) {
   sails.log.info("@CardService.vault params: ", params);
 
   request.post(params, function(error, response, body) {
-    sails.log.info("response body: ", body);
+    sails.log.info("@CardService.vault body: ", body);
 
     var result = {
       response: response,
@@ -38,7 +38,7 @@ Card.prototype.vault = function(options, done) {
   });
 };
 
-Card.prototype.list = function(options, done) {
+CardService.prototype.list = function(options, done) {
   var customerId = options.customerId || "";
 
   var buffer = new Buffer(sails.config.cardVault.sandbox.secretApiKey + ":");
@@ -59,7 +59,7 @@ Card.prototype.list = function(options, done) {
   sails.log.info("@CardService.list params: ", params);
 
   request.get(params, function(error, response, body) {
-    sails.log.info("response body: ", body);
+    sails.log.info("@CardService.list body: ", body);
 
     var result = {
       response: response,
