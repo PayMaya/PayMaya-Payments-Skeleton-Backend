@@ -8,7 +8,15 @@
 module.exports = {
 
 	create: function(req, res) {
-		var payload = req.body;
+    var paymentToken = req.body.paymentToken || "";
+    var totalAmount = req.body.totalAmount || {};
+    var buyer = req.body.buyer || {};
+
+    var payload = {
+      paymentTokenId: paymentToken,
+      totalAmount: totalAmount,
+      buyer: buyer
+    };
 
 		var options = {
 			payload: payload
@@ -42,15 +50,7 @@ module.exports = {
   createCustomerCardPayment: function(req, res) {
 		var customerId = req.param("customerId") || "";
 		var cardId = req.param("cardId") || "";
-    var paymentToken = req.body.paymentToken || "";
-    var totalAmount = req.body.totalAmount || {};
-    var buyer = req.body.buyer || {};
-
-    var payload = {
-      paymentTokenId: paymentToken,
-      totalAmount: totalAmount,
-      buyer: buyer
-    };
+		var payload = req.body;
 
 		var options = {
 			customerId: customerId,
