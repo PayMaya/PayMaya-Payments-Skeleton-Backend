@@ -42,7 +42,15 @@ module.exports = {
   createCustomerCardPayment: function(req, res) {
 		var customerId = req.param("customerId") || "";
 		var cardId = req.param("cardId") || "";
-		var payload = req.body;
+    var paymentToken = req.body.paymentToken || "";
+    var totalAmount = req.body.totalAmount || {};
+    var buyer = req.body.buyer || {};
+
+    var payload = {
+      paymentTokenId: paymentToken,
+      totalAmount: totalAmount,
+      buyer: buyer
+    };
 
 		var options = {
 			customerId: customerId,
