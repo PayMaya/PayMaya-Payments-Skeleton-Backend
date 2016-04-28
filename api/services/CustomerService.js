@@ -43,8 +43,10 @@ CustomerService.prototype.create = function(options, done) {
     json: true
   };
 
+  sails.log.info("@CustomerService.create params: ", params);
+
   request.post(params, function(error, response, body) {
-    sails.log.info("response body: ", body);
+    sails.log.info("@CustomerService.create body: ", body);
 
     var result = {
       response: response,
