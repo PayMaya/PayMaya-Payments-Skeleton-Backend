@@ -10,9 +10,9 @@ function CustomerService() {
     middleName: "Michaels",
     lastName: "Doe",
     birthday: "1987-10-10",
-    sex: "m",
+    sex: "M",
     contact: {
-      phone: "+63(2)1234567890",
+      phone: "1234567890",
       email: "paymayabuyer1@gmail.com"
     },
     "billingAddress": {
